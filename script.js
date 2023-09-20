@@ -1,3 +1,19 @@
+var apiUrl = "https://api.mottasl.com/v2";
+var apiKey = "test-key";
+
 function tryApi() {
-    alert("success");
+    $.ajax({
+        url: apiUrl + '/account/templates',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        type: 'GET',
+        headers: { apikey: apiKey },
+        success: function (data) {
+            console.log(data);
+        }, error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+        }
+    });
 }
