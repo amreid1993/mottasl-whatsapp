@@ -5,9 +5,13 @@ function tryApi() {
     $.ajax({
         url: apiUrl + '/account/templates',
         contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
+        dataType: 'jsonp',
         type: 'GET',
-        headers: { apikey: apiKey },
+        headers: {
+            apikey: apiKey,
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        },
         success: function (data) {
             console.log(data);
         }, error: function (xhr, ajaxOptions, thrownError) {
